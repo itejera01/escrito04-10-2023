@@ -23,5 +23,6 @@ Route::post('/Tarea', [TareaController::class, "AgregarTarea"]);
 Route::get('/Tarea', [TareaController::class, "MostrarTareas"]);
 Route::delete('/Tarea', [TareaController::class, "EliminarTarea"]);
 Route::put('/Tarea', [TareaController::class, "ModificarTarea"]);
+Route::get('/UnaTarea', [TareaController::class, "MostrarUnaTarea"]);
 
 

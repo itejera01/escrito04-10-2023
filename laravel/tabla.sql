@@ -1,5 +1,5 @@
 CREATE TABLE Tarea(
-    Id serial,
+    Id serial PRIMARY KEY,
     Titulo varchar(255),
     Contenido varchar(255),
     Estado varchar(255),

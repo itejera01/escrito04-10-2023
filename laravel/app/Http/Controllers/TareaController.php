@@ -29,6 +29,13 @@ class TareaController extends Controller
         return $Tarea->all();
     }
 
+    public function MostrarUnaTarea(Request $request){
+        $Tarea = new Tarea();
+        $id = $request['id'];
+        $Tarea = Tarea::findOrFail($id);
+        return $Tarea;
+    }
+
     private function encontrarTarea(Request $request)
     {
         $Tarea = new Tarea();

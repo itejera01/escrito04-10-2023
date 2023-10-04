@@ -23,4 +23,10 @@ class TareaController extends Controller
         $Tarea->Autor = $request['autor'];
         return $Tarea;
     }
+
+    public function MostrarTareas()
+    {
+        $Tarea = new Tarea();
+        return $Tarea->all();
+    }
 }

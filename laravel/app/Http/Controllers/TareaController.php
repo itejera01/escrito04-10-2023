@@ -29,4 +29,12 @@ class TareaController extends Controller
         $Tarea = new Tarea();
         return $Tarea->all();
     }
+
+    public function EliminarTarea(Request $request)
+    {
+        $Tarea = new Tarea();
+        $id = $request['id'];
+        $Tarea = Tarea::findOrFail($id);
+        $Tarea->delete();
+    }
 }

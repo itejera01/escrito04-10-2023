@@ -14,7 +14,6 @@ class TareaController extends Controller
         $Tarea = crearTarea($Tarea, $request);
         $Tarea->save();
     }
-
     private function crearTarea($Tarea, $request)
     {
         $Tarea->Titulo = $request['titulo'];
@@ -30,11 +29,18 @@ class TareaController extends Controller
         return $Tarea->all();
     }
 
-    public function EliminarTarea(Request $request)
+    private function encontrarTarea(Request $request)
     {
         $Tarea = new Tarea();
         $id = $request['id'];
         $Tarea = Tarea::findOrFail($id);
+        return $Tarea;
+    }
+
+    public function EliminarTarea(Request $request)
+    {
+        $Tarea = encontrarTarea($request);
         $Tarea->delete();
     }
+
 }

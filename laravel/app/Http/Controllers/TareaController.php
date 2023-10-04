@@ -43,4 +43,17 @@ class TareaController extends Controller
         $Tarea->delete();
     }
 
+    public function ModificarTarea(Request $request){
+        $Tarea = encontrarTarea($request);
+        $TareaModificada = guardarDatosModificados($request , $tarea);
+        $Tarea -> delete();
+        $TareaModificada -> save();
+    }
+    private function guardarDatosModificados($request, $tarea){
+        $Tarea->Titulo = $request['titulo'];
+        $Tarea->Contenido = $request['contenido'];
+        $Tarea->Estado = $request['estado'];
+        $Tarea->Autor = $request['autor'];
+        return $Tarea;
+    }
 }
